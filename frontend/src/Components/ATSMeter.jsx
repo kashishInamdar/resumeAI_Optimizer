@@ -54,7 +54,7 @@ export default function ATSMeter({ score = 0 }) {
           y="50%"
           dominantBaseline="middle"
           textAnchor="middle"
-          className="fill-white text-4xl font-bold"
+          className="fill-cyan-400 text-4xl font-bold"
         >
           {score}
         </text>

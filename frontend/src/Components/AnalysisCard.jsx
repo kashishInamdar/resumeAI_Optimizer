@@ -20,13 +20,7 @@ export default function AnalysisCard({ result }) {
 
       {/* ATS Score */}
       <div className="bg-white/5 p-6 rounded-2xl">
-        <h3 className="text-xl font-semibold mb-3">
-          ATS Score
-        </h3>
-
-        <p className="text-5xl text-cyan-400 font-bold">
-          {result.atsScore || 0}
-        </p>
+        <ATSMeter score={result.atsScore || 0} />
         
       </div>
 
@@ -69,11 +63,11 @@ export default function AnalysisCard({ result }) {
 
         <p>
           {result.rewrittenSummary ||
-            "No summary generated"} kakak
+            "No summary generated"} 
         </p>
       </div>
       <div className="bg-white/5 p-6 rounded-2xl">
-            <ATSMeter score={result.atsScore || 0} />
+            
       </div>
 
     </div>

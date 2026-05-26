@@ -4,6 +4,7 @@ import Sidebar from "../components/Sidebar";
 import UploadCard from "../components/UploadCard";
 import JobDescriptionCard from "../components/JobDescriptionCard";
 import AnalysisCard from "../components/AnalysisCard";
+import RewriteEditor from "../Components/RewriteEditor";
 
 import { analyzeResume } from "../api/analyze";
 
@@ -46,6 +47,12 @@ export default function Dashboard() {
         </button>
 
         <AnalysisCard result={result} />
+
+        {result && (
+          <RewriteEditor
+            text={result.rewrittenSummary}
+          />
+        )}
 
       </main>
     </div>

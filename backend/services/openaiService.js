@@ -26,9 +26,13 @@ export const analyzeWithAI = async (
             content: `
 Analyze this resume vs job description.
 
-Return:
+IMPORTANT:
+atsScore must be an integer between 0 and 100.
+
+Return ONLY JSON:
+
 {
- "atsScore": number,
+ "atsScore": 0-100,
  "missingKeywords": [],
  "improvements": [],
  "rewrittenSummary": ""
@@ -55,7 +59,14 @@ ${jobDescription}
       .replace(/```/g, "")
       .trim();
 
-    return JSON.parse(content);
+    const parsed = JSON.parse(content);
+
+    if (parsed.atsScore <= 1) {
+      parsed.atsScore =
+        Math.round(parsed.atsScore * 100);
+    }
+
+    return parsed;
 
   } catch (error) {
     console.error(
